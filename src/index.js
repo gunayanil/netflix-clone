@@ -16,8 +16,7 @@ var firebaseConfig = {
   appId: process.env.APP_ID,
 };
 
-const firebase = window.firebase.initilizeApp(firebaseConfig);
-
+// const firebase = window.firebase.initializeApp(firebaseConfig);
 ReactDOM.render(
   <React.StrictMode>
     <FirebaseContext.Provider value={{ firebase: window.firebase }}>
