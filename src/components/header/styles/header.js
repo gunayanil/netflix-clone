@@ -6,7 +6,7 @@ export const Background = styled.section`
   flex-direction: column;
   background: url(${({ src }) =>
       src ? `../images/misc/${src}.jpg` : '../images/misc/home-bg.jpg'})
-    top left cover no-repeat;
+    top left / cover no-repeat;
 
   @media (max-width: 1100px) {
     ${({ dontShowOnSmallViewPort }) =>
