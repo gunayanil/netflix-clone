@@ -15,6 +15,9 @@ import {
   Search,
   SearchIcon,
   SearchInput,
+  Profile,
+  Picture,
+  Dropdown,
 } from './styles/header';
 
 export const Header = ({ bg = true, children, ...props }) => {
@@ -81,4 +84,16 @@ Header.Search = function HeaderSearch({
       />
     </Search>
   );
+};
+
+Header.Profile = function HeaderProfile({ children, ...props }) {
+  return <Profile {...props}>{children}</Profile>;
+};
+
+Header.Picture = function HeaderPicture({ src, ...props }) {
+  return <Picture {...props} src={`/images/users/${src}.png`} />;
+};
+
+Header.Dropdown = function HeaderDropdown({ children, ...props }) {
+  return <Dropdown {...props}>{children}</Dropdown>;
 };
