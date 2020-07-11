@@ -17,7 +17,7 @@ export const Signin = () => {
   const isInvalid = password === '' || email === '';
 
   const handleSignin = e => {
-    e.preventDefult();
+    e.preventDefault();
 
     firebase
       .auth()
