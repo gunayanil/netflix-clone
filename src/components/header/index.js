@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link as ReactRouterLink } from 'react-router-dom';
 import {
   Background,
@@ -12,6 +12,9 @@ import {
   Feature,
   FeatureCallOut,
   PlayButton,
+  Search,
+  SearchIcon,
+  SearchInput,
 } from './styles/header';
 
 export const Header = ({ bg = true, children, ...props }) => {
@@ -56,4 +59,26 @@ Header.FeatureCallOut = function HeaderFeautreCallOut({ children, ...props }) {
 
 Header.PlayButton = function HeaderPlayButton({ children, ...props }) {
   return <PlayButton {...props}>{children}</PlayButton>;
+};
+
+Header.Search = function HeaderSearch({
+  searchQuery,
+  setSearchQuery,
+  ...props
+}) {
+  const [searchActive, setSearchActive] = useState(false);
+
+  return (
+    <Search {...props}>
+      <SearchIcon onClick={() => setSearchActive(!searchActive)}>
+        <img src='/images/icons/search.png' alt='Search' />
+      </SearchIcon>
+      <SearchInput
+        value={searchQuery}
+        onChange={({ target }) => setSearchQuery(target.value)}
+        placeholder='Search movies and series'
+        active={searchActive}
+      />
+    </Search>
+  );
 };

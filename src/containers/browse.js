@@ -9,6 +9,7 @@ export const BrowseContainer = () => {
   const [profile, setProfile] = useState({});
   const [category, setCategory] = useState('series');
   const [loadng, setLoading] = useState(true);
+  const [searchQuery, setSearchQuery] = useState('');
 
   const { firebase } = useContext(FirebaseContext);
 
@@ -39,6 +40,12 @@ export const BrowseContainer = () => {
             >
               Movies
             </Header.Link>
+          </Header.Group>
+          <Header.Group>
+            <Header.Search
+              searchQuery={searchQuery}
+              setSearchQuery={setSearchQuery}
+            />
           </Header.Group>
         </Header.Frame>
         <Header.Feature>
