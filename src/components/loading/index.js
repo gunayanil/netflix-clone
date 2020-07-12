@@ -5,6 +5,7 @@ export const Loading = ({ src, ...props }) => {
   return (
     <Spinner {...props}>
       <LockBody />
+      <Picture src={`/images/users/${src}.png`} />
     </Spinner>
   );
 };
