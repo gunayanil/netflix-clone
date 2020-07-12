@@ -5,6 +5,7 @@ import * as ROUTES from '../constants/routes';
 import { FirebaseContext } from '../context/firebase';
 import { SelectProfileContainer } from './profiles';
 import { FooterContainer } from './footer';
+import { useAuthListener } from '../hooks';
 
 export const BrowseContainer = ({ slides }) => {
   const [profile, setProfile] = useState({});
@@ -14,11 +15,7 @@ export const BrowseContainer = ({ slides }) => {
   const [slideRows, setSlideRows] = useState([]);
 
   const { firebase } = useContext(FirebaseContext);
-
-  const user = {
-    displayName: 'Anil',
-    photoURL: '1',
-  };
+  const { user } = useAuthListener();
 
   useEffect(() => {
     setTimeout(() => {
@@ -43,7 +40,7 @@ export const BrowseContainer = ({ slides }) => {
     }
   }, [searchQuery]);
 
-  return profile.displayName ? (
+  return profile.displayName && user ? (
     <>
       {loading ? <Loading src={user.photoURL} /> : <Loading.ReleaseBody />}
       <Header src='joker1' dontShowOnSmallViewPort>
