@@ -11,12 +11,12 @@ export const Container = styled.div`
 export const Title = styled.h1`
   color: white;
   max-width: 640px;
-  font-size: 50px;
-  font-weight: 500;
+  font-size: 55px;
+  font-weight: bold;
   margin: auto;
 
   @media (max-width: 600px) {
-    font-size: 35px;
+    font-size: 40px;
   }
 `;
 
