@@ -10,8 +10,11 @@ export const Home = () => {
     <>
       <HeaderContainer>
         <Feature>
-          <Feature.Title>Unlimited movies, TV shows, and more.</Feature.Title>
-          <Feature.SubTitle>Watch anywhere. Cancel anytime.</Feature.SubTitle>
+          <Feature.Title>100% entertainment guaranteed.</Feature.Title>
+          <Feature.SubTitle>
+            You'll love Netflix! If you don't, cancel within 7 days for a
+            refund.
+          </Feature.SubTitle>
           <OptForm>
             <OptForm.Input placeholder='Email Address' />
             <OptForm.Button>Try it now</OptForm.Button>
