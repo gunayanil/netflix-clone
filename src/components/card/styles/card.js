@@ -89,10 +89,10 @@ export const Item = styled.div`
   margin-right: 5px;
   position: relative;
   cursor: pointer;
-  transition: transform 0.2;
+  transition: transform 0.3s;
 
   &:hover {
-    transform: scale(1.3);
+    transform: scale(1.4);
     z-index: 99;
   }
 
