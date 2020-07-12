@@ -95,15 +95,18 @@ export const BrowseContainer = ({ slides }) => {
               {item.data.map(i => (
                 <Card.Item key={i.docId} item={i}>
                   <Card.Image
-                    src={`/images/${category}/${item.genre}/${item.slug}/small.jpg`}
+                    src={`/images/${category}/${i.genre}/${i.slug}/small.jpg`}
                   />
                   <Card.Meta>
-                    <Card.Subtitle>{i.title}</Card.Subtitle>
+                    <Card.SubTitle>{i.title}</Card.SubTitle>
                     <Card.Text>{i.description}</Card.Text>
                   </Card.Meta>
                 </Card.Item>
               ))}
             </Card.Entities>
+            <Card.Feature category={category}>
+              <p>SomeText</p>
+            </Card.Feature>
           </Card>
         ))}
       </Card.Group>
