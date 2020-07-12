@@ -4,7 +4,6 @@ import {
   Background,
   ButtonLink,
   Container,
-  Frame,
   Group,
   Link,
   Logo,

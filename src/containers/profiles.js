@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Header, Profiles } from '../components';
 import * as ROUTES from '../constants/routes';
 
