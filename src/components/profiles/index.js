@@ -18,7 +18,6 @@ Profiles.User = function ProfilesUser({ children, ...props }) {
 };
 
 Profiles.Picture = function ProfilePicture({ src, ...props }) {
-  console.log('Src: ', src);
   return (
     <Picture
       {...props}
