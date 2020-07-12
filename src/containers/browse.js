@@ -1,16 +1,16 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { Header } from '../components';
+import { Card, Header, Loading } from '../components';
 import * as ROUTES from '../constants/routes';
 import { FirebaseContext } from '../context/firebase';
 import { SelectProfileContainer } from './profiles';
 import { FooterContainer } from './footer';
-import { Loading } from '../components/loading';
 
-export const BrowseContainer = () => {
+export const BrowseContainer = ({ slides }) => {
   const [profile, setProfile] = useState({});
   const [category, setCategory] = useState('series');
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
+  const [slideRows, setSlideRows] = useState([]);
 
   const { firebase } = useContext(FirebaseContext);
 
@@ -24,6 +24,10 @@ export const BrowseContainer = () => {
       setLoading(false);
     }, 2000);
   }, [user]);
+
+  useEffect(() => {
+    setSlideRows(slides[category]);
+  }, [slides, category]);
 
   return profile.displayName ? (
     <>
@@ -82,6 +86,28 @@ export const BrowseContainer = () => {
           <Header.PlayButton>Play</Header.PlayButton>
         </Header.Feature>
       </Header>
+
+      <Card.Group>
+        {slideRows.map(item => (
+          <Card key={`${category}-${item.title.toLowerCase()}`}>
+            <Card.Title>{item.title}</Card.Title>
+            <Card.Entities>
+              {item.data.map(i => (
+                <Card.Item key={i.docId} item={i}>
+                  <Card.Image
+                    src={`/images/${category}/${item.genre}/${item.slug}/small.jpg`}
+                  />
+                  <Card.Meta>
+                    <Card.Subtitle>{i.title}</Card.Subtitle>
+                    <Card.Text>{i.description}</Card.Text>
+                  </Card.Meta>
+                </Card.Item>
+              ))}
+            </Card.Entities>
+          </Card>
+        ))}
+      </Card.Group>
+
       <FooterContainer />
     </>
   ) : (
