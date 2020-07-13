@@ -23,12 +23,13 @@ export const Signin = () => {
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then(() => {
-        setEmail('');
-        setPassword('');
-        setError('');
         history.push(ROUTES.BROWSE);
       })
-      .catch(err => setError(err.message));
+      .catch(err => {
+        setEmail('');
+        setPassword('');
+        setError(err.message);
+      });
   };
 
   return (

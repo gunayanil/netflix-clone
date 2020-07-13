@@ -30,13 +30,14 @@ export const Signup = () => {
             photoURL: Math.floor(Math.random() * 5) + 1,
           })
           .then(() => {
-            setEmail('');
-            setPassword('');
-            setError('');
             history.push(ROUTES.BROWSE);
           })
       )
-      .catch(err => setError(err.message));
+      .catch(err => {
+        setEmail('');
+        setPassword('');
+        setError(err.message);
+      });
   };
 
   return (
