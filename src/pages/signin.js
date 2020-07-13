@@ -7,8 +7,8 @@ import { FooterContainer } from '../containers/footer';
 import * as ROUTES from '../constants/routes';
 
 export const Signin = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('me@anilgunay.com');
+  const [password, setPassword] = useState('123456');
   const [error, setError] = useState('');
 
   const history = useHistory();
