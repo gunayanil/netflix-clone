@@ -37,24 +37,8 @@ export const Close = styled.button`
   background-color: transparent;
   border: 0;
   cursor: pointer;
-
-  &:before,
-  &:after {
-    position: absolute;
-    left: 10px;
-    top: 0;
-    content: ' ';
-    height: 22px;
-    width: 2px;
-    background-color: white;
-  }
-
-  &:hover {
-    transform: rotate(45deg);
-  }
-  &:after {
-    transform: rotate(-45deg);
-  }
+  font-size: 24px;
+  color: #fff;
 `;
 
 export const Button = styled.button`
